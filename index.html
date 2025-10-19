@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Оплата — Пятёрка</title>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; padding: 50px; background: #f9f9f9; }
+    .container { max-width: 500px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+    h1 { color: #6c5ce7; margin-bottom: 20px; }
+    #amount { font-size: 24px; font-weight: bold; color: #2ecc71; margin: 20px 0; }
+    .btn { padding: 14px 30px; font-size: 18px; background: #2ecc71; color: white; border: none; border-radius: 8px; cursor: pointer; }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>✅ Оплата в «Пятёрка»</h1>
+  <p>Сумма к оплате:</p>
+  <div id="amount">— ₽</div>
+  <button class="btn" onclick="pay()">Оплатить</button>
+</div>
+
+<script>
+  // Получаем сумму из URL: ?amount=1234
+  const urlParams = new URLSearchParams(window.location.search);
+  const amount = urlParams.get('amount') || '0';
+
+  document.getElementById("amount").textContent = amount + " ₽";
+
+  function pay() {
+    alert("Оплата прошла успешно! Спасибо за покупку.");
+    // В реальности здесь был бы редирект в платёжную систему
+  }
+</script>
+
+</body>
+</html>
